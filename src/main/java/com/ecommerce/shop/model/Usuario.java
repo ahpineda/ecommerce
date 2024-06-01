@@ -1,15 +1,14 @@
-/*
+    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.ecommerce.tienda.model;
-import java.util.ArrayList;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+package com.ecommerce.shop.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  *
  * @author apineda
@@ -18,26 +17,31 @@ import javax.persistence.Table;
 @Table(name="usuarios")
 public class Usuario {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name="codigo")
+    private Integer codigo;
+    @Column(name="nombre")   
     private String nombre;
+    @Column(name="apellido")
+    private String apellido;
+
+    @Column(name="username")
     private String username;
+    @Column(name="email")
     private String email;
+    @Column(name="direccion")
     private String direccion;
+    @Column(name="telefono")
     private String telefono;
+    @Column(name="tipo")
     private String tipo;
+    @Column(name="password")
     private String password;
-    
-    @OneToMany(mappedBy = "usuario")
-    private ArrayList<Producto> productos;
-    
-    @OneToMany(mappedBy = "usuario")
-    private ArrayList<Orden> orden; 
-    
+        
     public Usuario() {
     }
 
-    public Usuario(Integer id, String nombre, String username, String email, String direccion, String telefono, String tipo, String password) {
+    public Usuario(Integer id, String nombre, String apellido, String username, String email, String direccion, String telefono, String tipo, String password) {
         this.id = id;
         this.nombre = nombre;
         this.username = username;
@@ -48,14 +52,27 @@ public class Usuario {
         this.password = password;
     }
 
-    public void setProductos(ArrayList<Producto> productos) {
-        this.productos = productos;
+//    public void setProductos(ArrayList<Producto> productos) {
+//        this.productos = productos;
+//    }
+//
+//    public ArrayList<Producto> getProductos() {
+//        return productos;
+//    }
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
 
-    public ArrayList<Producto> getProductos() {
-        return productos;
+    public String getApellido() {
+        return apellido;
     }
 
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+    public Integer getCodigo() {
+        return codigo;
+    }
     public void setId(Integer id) {
         this.id = id;
     }

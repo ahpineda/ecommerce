@@ -1,13 +1,14 @@
-package com.ecommerce.tienda;
+package com.ecommerce.shop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TiendaApplication {
+public class ShopApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TiendaApplication.class, args);
+		SpringApplication.run(ShopApplication.class, args);
+                System.out.print("hola pepe");
 	}
 
 }

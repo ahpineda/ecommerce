@@ -2,16 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.ecommerce.tienda.model;
+package com.ecommerce.shop.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+
 
 /**
  *
@@ -20,50 +18,63 @@ import javax.persistence.Table;
 @Entity
 @Table(name="ordenes")
 public class Orden {
-
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)    
     private Integer id;
+    @Column(name="codigo")
+    private Integer codigo;
+    @Column(name="numero")
     private String numero;
+    @Column(name="fechacreate")
     private Date fechaCreacion;
+    @Column(name="fechareceived")
     private Date fechaRecibida;
+    @Column(name="total")
     private Double total;
-    @ManyToOne
-    private Usuario usuario;
-    @OneToOne()
-    private DetalleOrden detalleOrden;
+    @Column(name="codusuario")
+    private Integer codusuario;
+    @Column(name="coddetalle")
+    private Integer coddetalle;
+
+
     public Orden() {
     }   
-    public Orden(Integer id, String numero, Date fechaCreacion, Date fechaRecibida, Double total) {
+    public Orden(Integer id, Integer codigo,String numero, Date fechaCreacion, Date fechaRecibida, Double total,Integer codusuario,Integer coddetalle) {
         this.id = id;
+        this.codigo=codigo;
         this.numero = numero;
         this.fechaCreacion = fechaCreacion;
         this.fechaRecibida = fechaRecibida;
         this.total = total;
+        this.codusuario = codusuario;
+        this.coddetalle = coddetalle;
     }
 
-    public void setDetalleOrden(DetalleOrden detalleOrden) {
-        this.detalleOrden = detalleOrden;
+    public Integer getCodigo() {
+        return codigo;
     }
 
-    public DetalleOrden getDetalleOrden() {
-        return detalleOrden;
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-    public void setId(Integer id) {
-        this.id = id;
-    }
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
     public void setNumero(String numero) {
         this.numero = numero;
     }
+    public Integer getCodusuario() {
+        return codusuario;
+    }
 
+    public void setCodusuario(Integer codusuario) {
+        this.codusuario = codusuario;
+    }
+
+    public Integer getCoddetalle() {
+        return coddetalle;
+    }
+
+    public void setCoddetalle(Integer coddetalle) {
+        this.coddetalle = coddetalle;
+    }
     public void setFechaCreacion(Date fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }

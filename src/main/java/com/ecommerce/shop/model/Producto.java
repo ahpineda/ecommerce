@@ -2,13 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.ecommerce.tienda.model;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+package com.ecommerce.shop.model;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  *
  * @author apineda
@@ -17,44 +16,50 @@ import javax.persistence.Table;
 @Table(name="productos")
 public class Producto {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name="codigo")
+    private Integer codigo;
+    @Column(name="nombre")
     private String nombre;
+    @Column(name="descripcion")
     private String descripcion;
+    @Column(name="imagen")
     private String imagen;
+    @Column(name="precio")
     private Double precio;
+    @Column(name="cantidad")
     private Integer cantidad;
-    @ManyToOne
-    private Usuario usuario;
 
     public Producto() {
     }
 
-    public Producto(Integer id, String nombre, String descripcion, String imagen, Double precio, Usuario usuario) {
+    public Producto(Integer id, Integer codigo,String nombre, String descripcion, String imagen, Double precio) {
         this.id = id;
+        this.codigo=codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagen = imagen;
         this.precio = precio;
-        this.usuario = usuario;
     }
 
-    public Producto(Integer id, String nombre, String descripcion, String imagen, Double precio, Integer cantidad) {
+
+    public Producto(Integer id,Integer codigo, String nombre, String descripcion, String imagen, Double precio, Integer cantidad) {
         this.id = id;
+        this.codigo=codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagen = imagen;
         this.precio = precio;
         this.cantidad = cantidad;
     }
-     
-    public Usuario getUsuario() {
-        return usuario;
+    public Integer getCodigo() {
+        return codigo;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }   
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -107,6 +112,5 @@ public class Producto {
     public String toString() {
         return "Productos{" + "id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", imagen=" + imagen + ", precio=" + precio + ", cantidad=" + cantidad + '}';
     }
-
 
 }
