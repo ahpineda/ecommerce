@@ -97,11 +97,13 @@ public class ProductoController {
     }
     
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable Integer id, @RequestParam("img")MultipartFile file){
+    public String delete(@PathVariable Integer id){
         Producto p = new Producto();
         p=productoservice.get(id).get();
         //eliminamos img cuando no sea por default
-        if(p.getImagen().equals("default.jpg")){
+        logger.info("Producto buscado :{}", p);
+        
+        if(!p.getImagen().equals("default.jpg")){
             upload.deleteImage(p.getImagen());
         }
         productoservice.delete(id);
