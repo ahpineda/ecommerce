@@ -6,6 +6,8 @@ package com.ecommerce.shop.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.util.Date;
@@ -19,6 +21,8 @@ import java.util.Date;
 @Table(name="ordenes")
 public class Orden {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private Integer id;
     @Column(name="codigo")
     private Integer codigo;
@@ -30,9 +34,9 @@ public class Orden {
     private Date fechaRecibida;
     @Column(name="total")
     private Double total;
-    @Column(name="codusuario")
+    @Column(name="cod_usuario")
     private Integer codusuario;
-    @Column(name="coddetalle")
+    @Column(name="cod_detalle")
     private Integer coddetalle;
 
 

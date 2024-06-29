@@ -29,7 +29,7 @@ public class HomeController {
     
     @GetMapping("/")    
     public String home(Model model){
-        model.addAttribute("productos",productoservice.findAll());
+        model.addAttribute("productos",productoservice. findAll());
         return "usuario/home";
     }
     @GetMapping("productohome/{id}")

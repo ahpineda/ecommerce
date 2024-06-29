@@ -18,8 +18,8 @@ import jakarta.persistence.Table;
 @Table(name="productos")
 public class Producto {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
     @Column(name="codigo")
     private Integer codigo;

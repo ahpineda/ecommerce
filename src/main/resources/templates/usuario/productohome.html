@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -34,7 +34,7 @@
       </h1>
 
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a thhref="@{/}">Home</a></li>
+        <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
         <li class="breadcrumb-item active">Producto</li>
       </ol>
 
@@ -44,7 +44,7 @@
           <div class="row">
             <div class="col-lg-6">
               <a href="#"> <img class="img-fluid rounded"
-                th:src="@{images/{img} (img=${producto.imagen})}"  alt="">
+                th:src="@{/images/{img} (img=${producto.imagen})}"  alt="">
               </a>
             </div>
             <div class="col-lg-6">
